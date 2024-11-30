@@ -18,7 +18,6 @@ class ASCII { //All in one word
                 ]
             };
         }
-
         ascii(args) {
             const array = [];
                 for (let i = 0; i < args.TEXT.length; i++) {
