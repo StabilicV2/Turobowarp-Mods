@@ -11,11 +11,11 @@ class Rounding {
                     arguments: {
                         INPUT: {
                             type: Scratch.ArgumentType.NUMBER,
-                            defaultValue: '7.639'
+                            defaultValue: '7.635'
                         },
                         PRECISION: {
                             type: Scratch.ArgumentType.NUMBER,
-                            defaultValue: '3'
+                            defaultValue: '2'
                         }
                     }
                 }
