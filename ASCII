@@ -6,7 +6,7 @@ class ASCII { //All in one word
             blocks: [
                 {
                     opcode: 'ascii', //No uppercase
-                    blockType:Scratch.BlockType.REPORTER, //In capital letters
+                    blockType: Scratch.BlockType.REPORTER, //In capital letters
                     text: 'Convert [TEXT] to ASCII',
                     arguments: {
                         TEXT: {
