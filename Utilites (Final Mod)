@@ -1,3 +1,6 @@
+import { powers } from "./Functions.js";
+
+
 class Utility {
     getInfo() {
         return {
@@ -63,7 +66,7 @@ class Utility {
         }
         return array;
     }
-    powers(args) { //* Powers function
+    powers(args) {
         return Math.pow(args.BASE, args.EXPONENT);
     }
 }
