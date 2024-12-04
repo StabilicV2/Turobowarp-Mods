@@ -1,14 +1,11 @@
-import { powers } from "./Functions.js";
-
-
 class Utility {
     getInfo() {
         return {
             id: 'util',
             name: 'Utility',
             blocks: [
-                {
-                    opcode: 'round', //* Rounding function
+                { //* Rounding operator
+                    opcode: 'round',
                     blockType: Scratch.BlockType.REPORTER,
                     text: 'Round [INPUT] to [PRECISION] decimal places',
                     arguments: {
@@ -23,7 +20,7 @@ class Utility {
                     }
                 },
                 '---',
-                {
+                { //* ASCII operator
                     opcode: 'ascii', //* ASCII function
                     blockType: Scratch.BlockType.REPORTER,
                     text: 'Convert [TEXT] to ASCII',
@@ -35,7 +32,7 @@ class Utility {
                     }
                 },
                 '---',
-                {
+                { //* Powers operator
                     opcode: 'powers', //* Powers function
                     blockType: Scratch.BlockType.REPORTER,
                     text: 'Raise [BASE] to the power of [EXPONENT]',
@@ -49,8 +46,50 @@ class Utility {
                             defaultValue: '7'
                         }
                     }
+                },
+                '---',
+                { //* Encoding operator
+                    opcode: 'encode',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Encode [TEXT] using [ENCODING]',
+                    arguments: {
+                        TEXT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'Hello'
+                        },
+                        ENCODING: {
+                            type: Scratch.ArgumentType.STRING,
+                            menu: 'ENCODING_MENU',
+                        }
+                    }
+                },
+                '---',
+                { //* Decoding operator
+                    opcode: 'decode',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Decode [TEXT] using [DECODING]',
+                    arguments: {
+                        TEXT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'SGVsbG8='
+                        },
+                        DECODING: {
+                            type: Scratch.ArgumentType.STRING,
+                            menu: 'DECODING_MENU',
+                        }
+                    }
                 }
-            ]
+            ],
+            menus: { //* Dropdown menus
+                ENCODING_MENU: {
+                    acceptsReporters: false,
+                    items: ['Base64', 'UTF-8', 'ASCII']
+                },
+                DECODING_MENU: {
+                    acceptsReporters: false,
+                    items: ['Base64', 'UTF-8', 'ASCII']
+                }
+            }
         }
     }
 
@@ -66,8 +105,45 @@ class Utility {
         }
         return array;
     }
-    powers(args) {
+    powers(args) { //* Powers function
         return Math.pow(args.BASE, args.EXPONENT);
+    }
+    encode(args) { //* Encoding function
+        if (args.ENCODING === 'Base64') {
+            return btoa(args.TEXT);
+        } else if (args.ENCODING === 'UTF-8') {
+            return encodeURIComponent(args.TEXT);
+        } else if (args.ENCODING === 'ASCII') {
+            const array = [];
+            for (let i = 0; i < args.TEXT.length; i++) {
+                array[i] = args.TEXT.charCodeAt(i);
+            }
+            const string = array.join(' ');
+            return string;
+        }
+    }
+
+    decode(args) { //* Decoding function
+            if (args.DECODING === 'Base64') {
+                return atob(args.TEXT);
+            } else if (args.DECODING === 'UTF-8') {
+                    return decodeURIComponent(args.TEXT);
+            } else if (args.DECODING === 'ASCII') {
+                let Input = args.TEXT; 
+                if (typeof Input === "number") {
+                  Input = String(Input); 
+                }
+                const Values = Input.match(/\d+/g);
+                if (Values) {
+                  const Decode = Values
+                    .map(num => String.fromCharCode(Number(num)))
+                    .join('');
+                  return Decode;
+                } else {
+                  return NaN;
+                }
+                
+            }
     }
 }
 Scratch.extensions.register(new Utility()); //! May need to be unsandboxed later
