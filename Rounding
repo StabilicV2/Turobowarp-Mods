@@ -1,0 +1,30 @@
+class Rounding {
+    getInfo() {
+        return {
+            id: 'round', //No uppercase
+            name: 'Rounding', //Any string
+            blocks: [
+                {
+                    opcode: 'round',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Round [INPUT] to [PRECISION] decimal places',
+                    arguments: {
+                        INPUT: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '7.635'
+                        },
+                        PRECISION: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '2'
+                        }
+                    }
+                }
+            ]
+        }
+    }
+    round(args) {
+        let RoundedValue = Math.round(args.INPUT * Math.pow(10, args.PRECISION)) / Math.pow(10, args.PRECISION);
+        return RoundedValue
+    }
+}
+Scratch.extensions.register(new Rounding());

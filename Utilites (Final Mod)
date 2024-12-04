@@ -1,0 +1,70 @@
+class Utility {
+    getInfo() {
+        return {
+            id: 'util',
+            name: 'Utility',
+            blocks: [
+                {
+                    opcode: 'round', //* Rounding function
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Round [INPUT] to [PRECISION] decimal places',
+                    arguments: {
+                        INPUT: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '7.635'
+                        },
+                        PRECISION: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '2'
+                        }
+                    }
+                },
+                '---',
+                {
+                    opcode: 'ascii', //* ASCII function
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Convert [TEXT] to ASCII',
+                    arguments: {
+                        TEXT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'A'
+                        }
+                    }
+                },
+                '---',
+                {
+                    opcode: 'powers', //* Powers function
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Raise [BASE] to the power of [EXPONENT]',
+                    arguments: {
+                        BASE: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '2'
+                        },
+                        EXPONENT: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '7'
+                        }
+                    }
+                }
+            ]
+        }
+    }
+
+    round(args) { //* Rounding function
+        let RoundedValue = Math.round(args.INPUT * Math.pow(10, args.PRECISION)) / Math.pow(10, args.PRECISION);
+        return RoundedValue
+    }
+
+    ascii(args) { //* ASCII function
+        const array = [];
+        for (let i = 0; i < args.TEXT.length; i++) {
+            array[i] = args.TEXT.charCodeAt(i);
+        }
+        return array;
+    }
+    powers(args) { //* Powers function
+        return Math.pow(args.BASE, args.EXPONENT);
+    }
+}
+Scratch.extensions.register(new Utility()); //! May need to be unsandboxed later
