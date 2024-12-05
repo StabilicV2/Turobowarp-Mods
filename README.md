@@ -14,4 +14,4 @@ Encode - Encode to Base64, UTF-8 and ASCII
 
 Decode - Decode from Base64, UTF-8 and ASCII
 
-!!Currently the Utilities file only contains ASCII, Power, Rounding, Encoding and Decoding!!
+//!Currently the Utilities file only contains ASCII, Power, Rounding, Encoding and Decoding
