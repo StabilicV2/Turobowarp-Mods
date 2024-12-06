@@ -5,7 +5,7 @@
         throw new Error('Must run unsandboxed');
     }
 class Utility { //* Extension itself
-    constructor() {
+    constructor() { //! Constructor for VM internals
         this.vm = Scratch.vm;
         this.vm.target = this.vm.runtime.getEditingTarget();
         this.targetX = this.vm.target.x; // Track target X position
@@ -120,6 +120,7 @@ class Utility { //* Extension itself
         }
     }
 
+    //! Functions
     round(args) { //* Rounding function
         let RoundedValue = Math.round(args.INPUT * Math.pow(10, args.PRECISION)) / Math.pow(10, args.PRECISION);
         return RoundedValue
