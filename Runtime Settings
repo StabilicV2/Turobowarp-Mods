@@ -1,0 +1,5 @@
+//TODO: File for runtime settings, e.g changing fps, interpolation, sprite count, fencing, etc.
+//TODO: Commands and Booleans
+
+//. Set X to Y
+//. X true?
