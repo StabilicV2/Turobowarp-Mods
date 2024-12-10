@@ -12,7 +12,7 @@
 
 //§ Create a function to create a new global block
     //> A function to create a new block definition for all sprites
-    //> This will require a button to create global blocks with defenitions
+    //> This will require a button to create global blocks with definitions
     //§ appropriate features such as the regular custom block. With additionally a few more options. 
         //- Variable, Text/Comment, Color, Boolean
             //. Possibly even enable/disable switch for easy accessibility and management
