@@ -1,0 +1,117 @@
+{
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "[javascript]": { //* Javascript
+        "editor.maxTokenizationLineLength": 2500
+    },
+    "editor.suggest.showStatusBar": true,
+    "codeium.enableConfig": { //* Codeium
+        "*": true,
+        "snippets": true,
+        "git-commit": true
+    },
+    "C_Cpp.default.cppStandard": "c++98", //* C++
+    "C_Cpp.default.cStandard": "c89",
+    "git.useForcePushIfIncludes": false,
+    "C_Cpp.vcFormat.space.pointerReferenceAlignment": "ignore",
+    "python.languageServer": "Pylance", //* Python
+    "files.associations": { //* Files and types
+        "Movement (General, Blocky)": "javascript",
+        "Movement (General, Smooth)": "javascript",
+        "Utilites (Final Mod)": "javascript",
+        "ASCII": "javascript",
+        "Rounding": "javascript",
+        "Decoding": "javascript",
+        "Power": "javascript",
+        "Global Block": "typescript",
+        "Functions": "javascript",
+        "Encoding": "javascript"
+    },
+    "git.autofetch": true,
+    "better-comments.tags": [
+                    //* Colored comments code
+        { //!
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //?
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //TODO
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //*
+            "tag": "*",
+            "color": "#98C379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //.
+            "tag": ".",
+            "color": "#EB34E8",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //-
+            "tag": "-",
+            "color": "#EDBE34",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //>
+            "tag": ">",
+            "color": "#EB3498",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        { //§
+            "tag": "§",
+            "color": "#FFFFFF",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+        
+    ]
+}
