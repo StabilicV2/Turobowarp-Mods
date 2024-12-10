@@ -1,0 +1,8 @@
+//! This script is to make an option to create a new global block similar to the custom blocks
+//! but functions globally rather than locally individually to each sprite.
+//? This will require a button to create as many global blocks as requested by the user with all the
+//? appropriate features such as the regular custom block. With additionally a few more options. 
+//. Boolean, Variable, Text/Comment, Color
+
+
+//TODO: Create classes (Class, getInfo, return)
