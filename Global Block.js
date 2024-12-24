@@ -19,5 +19,3 @@
         //- Easy editing access for control of global blocks (Just like with custom blocks)
             //. Edit, delete and add new global blocks
     //> Works just the same as a custom block except it is global and improved functionality
-
-//* I do not know how to implement this yet, but must be unsandboxed
