@@ -105,7 +105,64 @@ class Utility { //* Extension itself
                             defaultValue: '20'
                         }
                     }
-                }
+                },
+                '---',
+                { //* Letter operator
+                    opcode: 'letter',
+                    blockType: Scratch.BlockType.REPORTER,
+                    text: 'Letter(s) [FIRST] to [SECOND] of [STRING]',
+                    arguments: {
+                        FIRST: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '1'
+                        },
+                        SECOND: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: '5'
+                        },
+                        STRING: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'Hello World'
+                        }
+                    }
+
+                },
+                '---',
+                { //* List Equality operator
+                    opcode: 'listEquality',
+                    blockType: Scratch.BlockType.BOOLEAN,
+                    text: '[INPUT] is found in [LIST]?',
+                    arguments: {
+                        LIST: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'example'
+                        },
+                        INPUT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: 'example'
+                        }
+                    }
+                },
+                '---',
+                { //* Several Equalities operator
+                    opcode: 'severalEqual',
+                    blockType: Scratch.BlockType.BOOLEAN,
+                    text: '[A] = [B] or [C]?',
+                    arguments: {
+                        A: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '10'
+                        },
+                        B: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '5'
+                        },
+                        C: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: '6'
+                        },
+                    }
+                },
             ],
             menus: { //* Dropdown menus
                 ENCODING_MENU: {
@@ -171,7 +228,23 @@ class Utility { //* Extension itself
                 
             }
     }
-    movement(args) { //* Movement function
+    letter(args) { //* Letter function
+        let array = [];
+        for (let i = args.FIRST; i <= args.SECOND; i++)
+        {
+            array.push(args.STRING[i - 1]);
+        }
+        const joinedarray = array.join('');
+        return joinedarray;
+    }
+    listEquality(args) { //* List Equality function
+        return args.LIST.includes(args.INPUT);
+    }
+    severalEqual(args) { //* Several Equalities function
+        return args.A === args.B || args.A === args.C;
+    }
+
+        movement(args) { //* Movement function
         const animate = () => {
             // Smoothly move sprite toward target position using velocity
             this.vm.target.x += this.velocityX;
