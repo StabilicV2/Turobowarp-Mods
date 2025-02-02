@@ -158,7 +158,19 @@ class StableUtility { //* Extension itself
                           defaultValue: '2'
                       }
                   }
-              }
+              },
+              '---',
+              { //* Negative operator
+                  opcode: 'negative',
+                  blockType: Scratch.BlockType.REPORTER,
+                  text: '- [NUMBER]',
+                  arguments: {
+                      NUMBER: {
+                          type: Scratch.ArgumentType.NUMBER,
+                          defaultValue: '7.635'
+                        }
+                    }
+                }
           ],
           menus: { //* Dropdown menus
               ENCODING_MENU: {
@@ -242,6 +254,9 @@ class StableUtility { //* Extension itself
   divide(args) { //* Decimal Diving function
       let Value = Math.round((args.ONE / args.TWO) * Math.pow(10, args.DEC)) / Math.pow(10, args.DEC);
       return Value
+  }
+  negative(args) { //* Negative function
+      return -args.NUMBER;
   }
 }
 Scratch.extensions.register(new StableUtility());
